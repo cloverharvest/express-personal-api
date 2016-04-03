@@ -3,13 +3,31 @@
 
 var db = require('./models');
 
-var familyprofile = {description: "About us."};
+// var familyprofile = {description: "About us."};
+//
+// db.Familyprofile.create(new_familyprofile, function(err, familyprofile){
+//   if (err){
+//     return console.log("Error:", err);
+//   }
+//
+//   console.log("Created family profile", familyprofile._id);
+//   process.exit(); // we're all done! Exit the program.
+// });
 
-db.Familyprofile.create(new_familyprofile, function(err, familyprofile){
-  if (err){
+
+var profile = {
+     names: "Joseph, Anna, and Asher",
+     location: "Benicia",
+     professions: "Sales Professional, Web Development Student, Joy Giver",
+     religiousview: "Roman Catholic",
+     image: "http://i.imgur.com/1GwUqdn.jpg",
+};
+
+db.profile.create(new_profile, function(err, profile) {
+  if (err) {
     return console.log("Error:", err);
   }
 
-  console.log("Created family profile", familyprofile._id);
-  process.exit(); // we're all done! Exit the program.
+  console.log("Created profile", profile._id);
+  process.exit();
 });
