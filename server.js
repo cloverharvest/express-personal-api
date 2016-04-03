@@ -43,7 +43,7 @@ app.get('/', function homepage(req, res) {
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
-    woops_i_has_forgot_to_document_all_my_endpoints: false, // CHANGE ME ;)
+    woops_i_has_forgot_to_document_all_my_endpoints: false,
     message: "Welcome to The Schwab Family API! Here's what you need to know!",
     documentation_url: "#", // CHANGE ME
     base_url: "http://pumpkin-cupcake-47698.herokuapp.com",
@@ -55,7 +55,7 @@ app.get('/api', function api_index(req, res) {
       {method: "PUT", path: "/api/placesvisited/:id", description: "Update details in parks, cities and places we have visited"},
       {method: "GET", path: "/api/favedives", description: "Get data on favorite food dives"},
       {method: "POST", path: "/api/favedives", description: "Add to Favorite food dives"},
-      {method: "DELETE", path: "/api/favedives", description: "Delete food dive"}
+      {method: "DELETE", path: "/api/favedives/:id", description: "Delete food dive"}
     ]
   });
 });

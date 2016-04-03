@@ -5,7 +5,7 @@ var ProfileSchema = new Schema({
      names: Array,
      location: String,
      professions: Array,
-     religion: String,
+     religiousview: String,
      image: String,
 });
 
