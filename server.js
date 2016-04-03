@@ -6,6 +6,12 @@ var express = require('express'),
 // and populate the req.body object
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(function(req, res, next) {
+  //allows other developers to consume the API from another origin
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 /************
  * DATABASE *
@@ -37,14 +43,19 @@ app.get('/', function homepage(req, res) {
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
-    woops_i_has_forgot_to_document_all_my_endpoints: true, // CHANGE ME ;)
-    message: "Welcome to my personal api! Here's what you need to know!",
-    documentation_url: "https://github.com/example-username/express_self_api/README.md", // CHANGE ME
-    base_url: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
+    woops_i_has_forgot_to_document_all_my_endpoints: false, // CHANGE ME ;)
+    message: "Welcome to The Schwab Family API! Here's what you need to know!",
+    documentation_url: "#", // CHANGE ME
+    base_url: "http://pumpkin-cupcake-47698.herokuapp.com",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "GET", path: "/api/profile", description: "Data About Us"}, // CHANGE ME
+      {method: "GET", path: "/api/placesvisited", description: "Get parks, cities and places we have visited"},
+      {method: "POST", path: "/api/placesvisited", description: "Add parks, cities and places we have visited"},
+      {method: "UPDATE", path: "/api/placesvisited", description: "Update details in parks, cities and places we have visited"},
+      {method: "GET", path: "/api/favedives", description: "Get data on favorite food dives"},
+      {method: "POST", path: "/api/favedives", description: "Add to Favorite food dives"},
+      {method: "DELETE", path: "/api/favedives", description: "Delete food dive"}
     ]
   });
 });
