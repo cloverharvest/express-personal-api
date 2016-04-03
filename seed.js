@@ -3,13 +3,13 @@
 
 var db = require('./models');
 
-var new_campsite = {description: "Sharp rocks. Middle of nowhere."};
+var familyprofile = {description: "About us."};
 
-db.Campsite.create(new_campsite, function(err, campsite){
+db.Familyprofile.create(new_familyprofile, function(err, familyprofile){
   if (err){
     return console.log("Error:", err);
   }
 
-  console.log("Created new campsite", campsite._id);
+  console.log("Created family profile", familyprofile._id);
   process.exit(); // we're all done! Exit the program.
 });
