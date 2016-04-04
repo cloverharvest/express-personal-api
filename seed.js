@@ -58,7 +58,7 @@ db.Profile.create(profile, function(err, profile) {
 //   longitude: -122.3649
 //   }
 // ];
-//
+
 // db.PlaceVisited.create(placesvisited, function(err, placesvisited) {
 //   if (err) {
 //     return console.log("Error:", err);
