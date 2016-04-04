@@ -23,13 +23,6 @@
         <div class="col-md-8 col-md-offset-2">
           <h1>The Schwab Family API</h1>
           <h4><a href="/api">Read My API Documentation</a></h4>
-          <form="form-inline" id="getprofile" method="get">
-            <div class="form-group">
-              <label for="about-us">About The Schwabs</label>
-              <input type="text" class="form-control" name="about-us" placeholder="i.e. profile, names, location, professions">
-            </div>
-            <button type="submit" class="btn btn-primary">Search</button>
-          </form>
 
           <div id="profiletarget">
             <script id="profile-template" type="text/x-handlebars-template">
@@ -48,6 +41,15 @@
               </p>
             </script>
           </div>
+
+          <form="form-inline" id="getplacevisited" method="get">
+            <div class="form-group">
+              <label for="about-us">Get Places Visited </label>
+              <input type="text" class="form-control" name="places-visited" placeholder="name, description, city">
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+          
         </div>
       </div>
     </div>
