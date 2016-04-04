@@ -45,7 +45,7 @@ app.get('/api', function api_index(req, res) {
   res.json({
     woops_i_has_forgot_to_document_all_my_endpoints: false,
     message: "Welcome to The Schwab Family API! Here's what you need to know!",
-    documentation_url: "#", // CHANGE ME
+    documentation_url: "# ", // CHANGE ME
     base_url: "http://pumpkin-cupcake-47698.herokuapp.com",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
