@@ -49,7 +49,7 @@ app.get('/api', function api_index(req, res) {
     base_url: "http://pumpkin-cupcake-47698.herokuapp.com",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data About Us"}, // CHANGE ME
+      {method: "GET", path: "/api/profile", description: "Data About Us"},
       {method: "GET", path: "/api/placesvisited", description: "Get parks, cities and places we have visited"},
       {method: "POST", path: "/api/placesvisited", description: "Add parks, cities and places we have visited"},
       {method: "PUT", path: "/api/placesvisited/:id", description: "Update details in parks, cities and places we have visited"},
@@ -75,6 +75,23 @@ app.get('/api/profile', function(req, res) {
       res.json(profile);
   });
 });
+
+// // get all placesvisited
+//
+// app.get('/api/placesvisited', function(req, res) {
+//   //res.json({profile: allProfile});
+//   var placesvisited = req.body;
+//   //send all the profile as JSON response
+//
+//   db.Profile.find().populate('placesvisited')
+//     .exec(function(err, placesvisited) {
+//       if (err) {
+//         return console.log(err);
+//       }
+//       res.json(placesvisited);
+//   });
+// });
+
 
 /**********
  * SERVER *
