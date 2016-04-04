@@ -23,11 +23,13 @@ var profile = {
      image: "http://i.imgur.com/1GwUqdn.jpg",
 };
 
+
 db.Profile.create(profile, function(err, profile) {
   if (err) {
     return console.log("Error:", err);
   }
 
   console.log("Created profile", profile._id);
+  console.log("Created", profile.length, "profile");
   process.exit();
 });

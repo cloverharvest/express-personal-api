@@ -35,6 +35,16 @@
             <script id="profile-template" type="text/x-handlebars-template">
               <p>
                 <!--put handlebars template here -->
+                {{#each profile}}
+                    <p> Hello, we are The Schwabs! Welcome to our API! </p>
+                    <p> Our names are {{names}} .</p>
+                    <p> We live in {{location}}, CA.
+                    <p> What do we do for a living? We are a {{professions}},
+                        respectively </p>
+                    <p> We respect life and we are for peace. We are {{religiousview}}. </p>
+                    <p> This is us: <img src="{{image}}" class="img-responsive" width=300px> </p>
+                {{/each}}
+
               </p>
             </script>
           </div>

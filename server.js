@@ -17,7 +17,7 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
-// var db = require('./models');
+var db = require('./models');
 
 /**********
  * ROUTES *
@@ -57,6 +57,22 @@ app.get('/api', function api_index(req, res) {
       {method: "POST", path: "/api/favedives", description: "Add to Favorite food dives"},
       {method: "DELETE", path: "/api/favedives/:id", description: "Delete food dive"}
     ]
+  });
+});
+
+
+//get all profile
+app.get('/api/profile', function(req, res) {
+  //res.json({profile: allProfile});
+  var profile = req.body;
+  //send all the profile as JSON response
+
+  db.Profile.find().populate('profile')
+    .exec(function(err, profile) {
+      if (err) {
+        return console.log(err);
+      }
+      res.json(profile);
   });
 });
 
