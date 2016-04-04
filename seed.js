@@ -58,6 +58,22 @@ db.Profile.create(profile, function(err, profile) {
 //   longitude: -122.3649
 //   }
 // ];
+//
+// db.PlaceVisited.remove({}, function(err, placesvisited){
+//   if(err) {
+//     console.log('Error occurred in remove', err);
+//   } else {
+//     console.log('removed all placesvisited');
+//
+//     // create new records based on the array books_list
+//     db.PlaceVisited.create(placesvisited, function(err, placesvisited){
+//       if (err) { return console.log('err', err); }
+//      
+//       console.log("created", placesvisited.length, "placesvisited");
+//       process.exit();
+//     });
+//   }
+// });
 
 // db.PlaceVisited.create(placesvisited, function(err, placesvisited) {
 //   if (err) {

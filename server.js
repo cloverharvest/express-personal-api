@@ -2,7 +2,10 @@
 var express = require('express'),
     app = express();
 
-// parse incoming urlencoded form data
+///heroku suggested fix
+
+app.set('port', (process.env.PORT || 5000));
+
 // and populate the req.body object
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -76,28 +79,37 @@ app.get('/api/profile', function(req, res) {
   });
 });
 
-// // get all placesvisited
-//
-// app.get('/api/placesvisited', function(req, res) {
-//   //res.json({profile: allProfile});
-//   var placesvisited = req.body;
-//   //send all the profile as JSON response
-//
-//   db.Profile.find().populate('placesvisited')
-//     .exec(function(err, placesvisited) {
-//       if (err) {
-//         return console.log(err);
-//       }
-//       res.json(placesvisited);
-//   });
-// });
+//get all placesvisited//not working yet//returning empty bracket
+
+app.get('/api/placesvisited', function(req, res) {
+
+//send all the profile as JSON response
+  db.PlaceVisited.find(function(err, placevisited) {
+    if (err) {
+    return console.log("index error:" + err);
+    }
+    res.json(placevisited);
+  });
+});
+
+//get one place visited//not working yet//returning gibberish
+app.get('/api/placesvisited/:id', function(req, res) {
+  db.PlaceVisited.findone({_id:req.params._id }, function(err, data) {
+    res.json(data);
+  });
+});
 
 
 /**********
  * SERVER *
  **********/
+//heroku suggested fix part2
 
-// listen on port 3000
-app.listen(process.env.PORT || 3000, function () {
-  console.log('Express server is up and running on http://localhost:3000/');
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
 });
+
+// // listen on port 3000
+// app.listen(process.env.PORT || 3000, function () {
+//   console.log('Express server is up and running on http://localhost:3000/');
+// });

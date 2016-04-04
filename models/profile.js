@@ -7,7 +7,6 @@ var ProfileSchema = new Schema({
      professions: Array,
      religiousview: String,
      image: String,
-     
 });
 
 var Profile = mongoose.model('Profile', ProfileSchema);
